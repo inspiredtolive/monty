@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 	/* Checks for file arguments */
 	if (argc == 1)
 	{
-		fprintf(stderr, "INCORRECT USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
