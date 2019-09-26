@@ -29,7 +29,7 @@ int isNum(char *str)
  */
 void stack_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node;
+	stack_t *new, *end;
 
 	(void)line_number;
 	if (mem.n == NULL || isNum(mem.n) == 0)
@@ -38,17 +38,31 @@ void stack_push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	node = malloc(sizeof(stack_t));
-	if (node == NULL)
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
 	{
 		free_all(*stack);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	node->n = atoi(mem.n);
-	node->prev = NULL;
-	node->next = *stack;
-	if (*stack)
-		(*stack)->prev = node;
-	*stack = node;
+	new->n = atoi(mem.n);
+
+	if (mem.stack_mode == 1 || (*stack) == NULL)
+	{
+		/* add node to the top */
+		new->prev = NULL;
+		new->next = *stack;
+		if (*stack)
+			(*stack)->prev = new;
+		*stack = new;
+	}
+	else
+	{
+		/* add node to the end */
+		for (end = *stack; end->next != NULL; end = end->next)
+			;
+		end->next = new;
+		new->prev = end;
+		new->next = NULL;
+	}
 }

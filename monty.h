@@ -36,9 +36,10 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct allocated_s - global struct to contain memory to free and push value
+ * struct allocated_s - contains memory to free, push value and stack mode
  * @n: integer value for the push opcode
  * @token: tokenized opcode to free
+ * @stack_mode: mode to format data to Stack(1) or Queue(0)
  * @pScript: file pointer to Monty bytecode file
  */
 typedef struct allocated_s
@@ -46,6 +47,7 @@ typedef struct allocated_s
 	char *n;
 	char *token;
 	FILE *pScript;
+	int stack_mode;
 } allocated_t;
 
 extern allocated_t mem;
@@ -65,6 +67,8 @@ void stack_pchar(stack_t **stack, unsigned int line_number);
 void stack_pstr(stack_t **stack, unsigned int line_number);
 void stack_rotl(stack_t **stack, unsigned int line_number);
 void stack_rotr(stack_t **stack, unsigned int line_number);
+void op_stack(stack_t **stack, unsigned int line_number);
+void op_queue(stack_t **stack, unsigned int line_number);
 void free_all(stack_t *stack);
 
 #endif
