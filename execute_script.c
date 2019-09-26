@@ -8,7 +8,7 @@ void execute_script(void)
 	char *line = NULL;
 	size_t len = 0;
 	int i;
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 	instruction_t ops[] = {
 		{"push", stack_push}, {"pall", stack_pall}, {"pint", stack_pint},
 		{"pop", stack_pop}, {"swap", stack_swap}, {"add", stack_add},
@@ -21,8 +21,11 @@ void execute_script(void)
 
 	while (getline(&line, &len, mem.pScript) != -1)
 	{
+		line_number++;
 		/* Finds opcode in ops[] */
 		mem.token = strtok(line, " \n");
+		if (mem.token == NULL || mem.token[0] == '#')
+			continue;
 		for (i = 0; ops[i].opcode != NULL; i++)
 		{
 			if (strcmp(ops[i].opcode, mem.token) == 0)
@@ -38,7 +41,6 @@ void execute_script(void)
 			free_all(stack);
 			exit(EXIT_FAILURE);
 		}
-		line_number++;
 	}
 	free_all(stack);
 }

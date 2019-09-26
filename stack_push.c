@@ -11,7 +11,12 @@ int isNum(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] < 48 || str[i] > 57)
+		if (i == 0 && str[i] == '-')
+		{
+			if (str[i + 1] == '\0')
+				return (0);
+		}
+		else if (str[i] < 48 || str[i] > 57)
 			return (0);
 	}
 	return (1);
