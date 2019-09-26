@@ -31,7 +31,6 @@ void stack_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new, *end;
 
-	(void)line_number;
 	if (mem.n == NULL || isNum(mem.n) == 0)
 	{
 		free_all(*stack);

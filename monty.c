@@ -11,7 +11,7 @@ allocated_t mem;
 int main(int argc, char const *argv[])
 {
 	/* Checks for file arguments */
-	if (argc == 1)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
