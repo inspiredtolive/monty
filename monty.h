@@ -66,5 +66,6 @@ void stack_pstr(stack_t **stack, unsigned int line_number);
 void stack_rotl(stack_t **stack, unsigned int line_number);
 void stack_rotr(stack_t **stack, unsigned int line_number);
 void free_all(stack_t *stack);
+int isNum(char *str);
 
 #endif
