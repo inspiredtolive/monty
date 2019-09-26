@@ -11,11 +11,14 @@ allocated_t mem;
 int main(int argc, char const *argv[])
 {
 	/* Checks for file arguments */
-	if (argc == 1)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
+
+	/* sets format node to stack */
+	mem.mode = STACK;
 
 	/* Attempts to open the file */
 	mem.pScript = fopen(argv[1], "r");

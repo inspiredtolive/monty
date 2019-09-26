@@ -15,6 +15,7 @@ void execute_script(void)
 		{"nop", stack_nop}, {"sub", stack_sub}, {"div", stack_div},
 		{"mul", stack_mul}, {"mod", stack_mod}, {"pchar", stack_pchar},
 		{"pstr", stack_pstr}, {"rotl", stack_rotl}, {"rotr", stack_rotr},
+		{"stack", op_stack}, {"queue", op_queue},
 		{NULL, NULL}
 	};
 	stack_t *stack = NULL;
