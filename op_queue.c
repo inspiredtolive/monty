@@ -10,5 +10,5 @@ void op_queue(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 
-	mem.stack_mode = 0;
+	mem.mode = QUEUE;
 }

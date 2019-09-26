@@ -46,7 +46,7 @@ void stack_push(stack_t **stack, unsigned int line_number)
 	}
 	new->n = atoi(mem.n);
 
-	if (mem.stack_mode == 1 || (*stack) == NULL)
+	if (mem.mode == STACK || (*stack) == NULL)
 	{
 		/* add node to the top */
 		new->prev = NULL;

@@ -36,10 +36,21 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
+ * enum stack_queue_mode - mode for queue and stack behavior
+ * @STACK: stack mode to push to top
+ * @QUEUE: queue mode to push to the end
+ */
+enum stack_queue_mode
+{
+	STACK,
+	QUEUE
+};
+
+/**
  * struct allocated_s - contains memory to free, push value and stack mode
  * @n: integer value for the push opcode
  * @token: tokenized opcode to free
- * @stack_mode: mode to format data to Stack(1) or Queue(0)
+ * @mode: mode to format data to Stack(1) or Queue(0)
  * @pScript: file pointer to Monty bytecode file
  */
 typedef struct allocated_s
@@ -47,7 +58,7 @@ typedef struct allocated_s
 	char *n;
 	char *token;
 	FILE *pScript;
-	int stack_mode;
+	enum stack_queue_mode mode;
 } allocated_t;
 
 extern allocated_t mem;

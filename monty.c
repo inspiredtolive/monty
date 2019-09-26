@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 	}
 
 	/* sets format node to stack */
-	mem.stack_mode = 1;
+	mem.mode = STACK;
 
 	/* Attempts to open the file */
 	mem.pScript = fopen(argv[1], "r");
