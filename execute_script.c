@@ -22,10 +22,10 @@ void execute_script(void)
 	while (getline(&line, &len, mem.pScript) != -1)
 	{
 		line_number++;
-		if (line[0] == '#')
-			continue;
 		/* Finds opcode in ops[] */
 		mem.token = strtok(line, " \n");
+		if (mem.token == NULL || mem.token[0] == '#')
+			continue;
 		for (i = 0; ops[i].opcode != NULL; i++)
 		{
 			if (strcmp(ops[i].opcode, mem.token) == 0)
