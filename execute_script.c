@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * execute_script - reads instructions from bytecod file and executes them
+ * execute_script - reads instructions from a bytecode file and executes them
  */
 void execute_script(void)
 {

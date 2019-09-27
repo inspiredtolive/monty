@@ -57,7 +57,8 @@ $ ./monty bytecodes/00.m
 | queue		| sets the format of the data to a queue (FIFO) |
 
 ## Brainf*ck
-The `bf` folder contains the following Brainf*ck scripts:
+The `bf` folder contains the following Brainf*ck scripts
+
 | BF Scripts	| Description	|
 | :-------:	| -----------	|
 | 1000-holberton.bf	| prints Holberton |
